@@ -2,7 +2,7 @@ import React from 'react';
 import SearchIcon from '@mui/icons-material/Search';
 import TuneIcon from '@mui/icons-material/Tune';
 import AddIcon from '@mui/icons-material/Add';
-const SearchFilterBar = ({ searchedValue, handleSearchChange, onAddVendorClick }) => {
+const SearchFilterBar = ({ searchedValue, handleSearchChange, onAddClick, buttonName, placeholderName }) => {
     return (
         <div className="flex justify-between items-center gap-4 py-4 p-3  w-full">
             {/* Search Input */}
@@ -12,7 +12,7 @@ const SearchFilterBar = ({ searchedValue, handleSearchChange, onAddVendorClick }
                 </div>
                 <input
                     type="text"
-                    placeholder="Search names"
+                    placeholder={placeholderName}
                     value={searchedValue}
                     onChange={handleSearchChange}
                     className="w-full pl-10 pr-4 py-3 rounded-[5px] text-[16px] bg-[#F9FAFB] border border-gray-200 focus:outline-none focus:ring-1 focus:ring-primary focus:border-transparent"
@@ -26,9 +26,9 @@ const SearchFilterBar = ({ searchedValue, handleSearchChange, onAddVendorClick }
                 </button>
 
                 {/* Add Vendor Button */}
-                <button className="flex items-center gap-2 px-4 py-3 rounded-[5px] text-[16px] bg-blue-600 text-white hover:bg-blue-700" onClick={onAddVendorClick}>
+                <button className="flex items-center gap-2 px-4 py-3 rounded-[5px] text-[16px] bg-blue-600 text-white hover:bg-blue-700" onClick={onAddClick}>
                     <AddIcon className="h-5 w-5" />
-                    <span className='text-[16px] font-medium'>Add Vendor</span>
+                    <span className='text-[16px] font-medium'>{buttonName}</span>
                 </button>
 
             </div>

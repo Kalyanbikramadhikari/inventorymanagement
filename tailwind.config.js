@@ -9,8 +9,19 @@ module.exports = {
       colors: {
         primary: '#1A73E8',
         background: '#F9FAFB',
+        horizontalLine:'#ECEDEF', //stroke
         dialog: {
-          black: '#1C1B1B'
+          black: '#1C1B1B',
+          grayone:'#99A0A5'
+        },
+        error:{
+          background:'#FFDDDE',
+          text:'#C55D5F',
+        },
+        success:{
+          background:'#E2FFDD',
+          text:'#6CC55D'
+
         },
         button: {
           border: '#A6AABA',

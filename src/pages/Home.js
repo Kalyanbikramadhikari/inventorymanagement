@@ -4,8 +4,8 @@ import Navbar from '../components/Navbar'
 import TabLabel from '../components/TabLabel'
 import SearchFilterBar from '../components/SearchFilterBar'
 import AddVendor from '../dialogBox/AddVendor'
-import VendorTable from '../components/tables/VendorTable'
 import VendorPreview from '../dialogBox/VendorPreview'
+import VendorTable from '../tables/VendorTable'
 
 const Home = () => {
   const vendorlists = ['Vendor Management', 'abc']
@@ -50,7 +50,7 @@ const Home = () => {
           <div className="flex  border-b border-gray-200 -mx-[35px]">
             <div className="flex px-[23px] w-full">
 
-              <SearchFilterBar searchedValue={searchedValue} handleSearchChange={handleSearchChange} onAddVendorClick={handleAddVendor} />
+              <SearchFilterBar searchedValue={searchedValue} handleSearchChange={handleSearchChange} onAddClick={handleAddVendor}  buttonName="Add Vendor" placeholderName ="Search Names" />
             </div>
           </div>
 
