@@ -1,9 +1,15 @@
 import CloseIcon from '@mui/icons-material/Close';
 import ArrowBackIosIcon from '@mui/icons-material/ArrowBackIos';
 
-import React, { useState } from 'react'
+import React, { useEffect, useState } from 'react'
 
-const AddProduct = ({ setOpenAddVendorDialog, openAddProductDialog,setOpenAddProductDialog }) => {
+const AddProduct = ({ setOpenAddVendorDialog, openAddProductDialog, setOpenAddProductDialog }) => {
+    const [isVisible, setIsVisible] = useState(false);
+    // Trigger animation on mount
+    useEffect(() => {
+        setIsVisible(true);
+        return () => setIsVisible(false); // Reset visibility on unmount
+    }, []);
     const [formData, setFormData] = useState({
         name: '',
         vendorId: '',
@@ -26,23 +32,32 @@ const AddProduct = ({ setOpenAddVendorDialog, openAddProductDialog,setOpenAddPro
         console.log(formData);
         // { setOpenAddProductDialog(false)};
     };
+    const handleClose = () => {
+        setIsVisible(false); // Collapse first
+        // Delay unmounting to allow the transition to complete
+        setTimeout(() => setOpenAddProductDialog(false),1);
+    };
     return (
-        <div className='absolute  inset-0 bg-black  bg-opacity-50 font-roboto  ' onClick={() => { setOpenAddProductDialog(false)}}>
+        <div className='absolute  inset-0 bg-black  bg-opacity-50 font-roboto  ' onClick={() => { setOpenAddProductDialog(false) }}>
             <div className={`flex  h-full border-2 border-blue-800  w-full justify-center p-9 `}>
-                <div className={`flex ${openAddProductDialog ? 'w-5/6 justify-end' : 'w-full'} `}>
-                    <div className={`bg-white rounded-[5px] ${openAddProductDialog ? '' : ''} w-2/6     relative transform transition-transform duration-500 `} onClick={(event) => event.stopPropagation()} >
+                {/* w-5/6 is to match the exact width of the vendor preview dialog box */}
+
+                {/* <div className={`flex border-2 border-blue-800 ${openAddProductDialog ? '' : ''}justify-end w-5/6  ${isVisible ? 'translate-y-0' : 'translate-y-full' } transition-transform duration-500 `}> */}
+                <div className={`flex border-2 border-blue-800 ${openAddProductDialog ? ' justify-end w-5/6' : 'w-0'}  `}>
+
+                    <div className={`bg-white rounded-[5px] ${isVisible ? 'w-2/6' : 'w-0'} transition-all duration-200      relative  `} onClick={(event) => event.stopPropagation()} >
                         <div className=" overflow-auto pb-20">
                             {/* Dialog Header */}
 
                             <div className="flex gap-5 items-center p-4 border-b">
-                            <button
-                                    onClick={() => setOpenAddProductDialog(false)}
+                                <button
+                                    onClick={handleClose}
                                     className="text-dialog-black hover:text-gray-700 border-[1px] p-[5px] pl-[8px] border-button-border flex justify-center items-center  rounded-md "
                                 >
-                                    <ArrowBackIosIcon  fontSize='small'/>
+                                    <ArrowBackIosIcon fontSize='small' />
                                 </button>
                                 <h2 className="text-xl font-semibold">Add Vendor</h2>
-                                
+
                             </div>
 
                             {/* Dialog Content */}
@@ -133,7 +148,7 @@ const AddProduct = ({ setOpenAddVendorDialog, openAddProductDialog,setOpenAddPro
                         <div className="flex justify-center gap-3 p-4  lg:px-10 xl:px-12 2xl:px-16 bg-background absolute bottom-0 w-full rounded-b-borderRadius">
                             <button
                                 type="button"
-                                onClick={() => { setOpenAddProductDialog(false)}}
+                                onClick={() => { setOpenAddProductDialog(false) }}
                                 className="px-4 py-3 border border-button-border bg-white text-dialog-black rounded-borderRadius text-subHeading hover:bg-gray-50 flex w-full justify-center"
                             >
                                 Cancel

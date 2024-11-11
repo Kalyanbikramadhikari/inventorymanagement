@@ -16,14 +16,14 @@ import SettingsIcon from '@mui/icons-material/Settings';
 const Sidebar = ({ activeItem }) => {
   const [isExpanded, setIsExpanded] = useState(true);
   const menuItems = [
-    { icon: DashboardIcon, label: 'Dashboard', href: '/dashboard' },
+    { icon: DashboardIcon, label: 'Dashboard', href: '/' },
     { icon: Inventory2Icon, label: 'Products', href: '/products' },
     { icon: InventoryIcon, label: 'Inventory', href: '/inventory' },
     // { icon: ShoppingCartIcon, label: 'Sales & Orders', href: '/sales' },
     { icon: PeopleAltIcon, label: 'Vendors', href: '/' },
     { icon: CalculateIcon, label: 'Accounting', href: '/accounting' },
     { icon: GroupIcon, label: 'Customers', href: '/customers' },
-    { icon: AssessmentIcon, label: 'Reports & Analysis', href: '/reports' },
+    { icon: AssessmentIcon, label: 'Reports & Analysis', href: '/report-and-analysis' },
 
   ];
   const menuItemsTwo = [
@@ -32,7 +32,7 @@ const Sidebar = ({ activeItem }) => {
   ]
 
   return (
-    <div className={`${isExpanded ? 'w-80' : 'w-20'} transition-all duration-300 border-r h-screen bg-[#F9FAFB] relative font-roboto`}     >
+    <div className={`${isExpanded ? 'w-80' : 'w-20'} transition-all duration-200 border-r h-screen bg-[#F9FAFB] relative font-roboto`}     >
       <div className=" p-4">
         <div className={`flex items-center gap-2 mb-8 ${isExpanded ? 'px-[24px]' : ''} `}>
           <img src="/assets/images/logo.png" alt="Invenzo" className={`h-10`} />

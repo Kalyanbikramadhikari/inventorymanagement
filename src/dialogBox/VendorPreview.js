@@ -33,7 +33,7 @@ const VendorPreview = ({ setOpenVendorPreviewDialog, userClickedVendorId }) => {
     return (
         <div className='absolute  inset-0 bg-black  bg-opacity-50 font-roboto  ' onClick={() => setOpenVendorPreviewDialog(false)}>
             <div className={`flex justify-center h-full   w-full p-9 `}>
-                <div className={`flex w-5/6 ${openAddProductDialog ? ' transform transition-transform duration-500  justify-start' : ''} `} style={openAddProductDialog ? { clipPath: 'inset(0 0 0 34%)' ,transform: 'translateX(-34%)' } : {}}>
+                <div className={`flex w-5/6 transform transition-transform duration-200  ${openAddProductDialog ? '  justify-start' : ''} `} style={openAddProductDialog ? { clipPath: 'inset(0 0 0 34%)' ,transform: 'translateX(-34%)' } : {}}>
 
                     {/* clipPath: 'inset(0 0 0 33.33%),' */}
                     {/* style={openAddProductDialog ? { width: 'calc(66.67% - 15px)' } : {}} */}
