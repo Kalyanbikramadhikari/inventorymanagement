@@ -6,6 +6,7 @@ import SearchFilterBar from '../components/SearchFilterBar'
 import AddVendor from '../dialogBox/AddVendor'
 import VendorPreview from '../dialogBox/VendorPreview'
 import VendorTable from '../tables/VendorTable'
+import VendorStats from '../components/VendorStats'
 
 const Home = () => {
   const vendorlists = ['Vendor Management', 'abc']
@@ -29,7 +30,7 @@ const Home = () => {
       <div className="flex-1 flex flex-col">
         <Navbar />
         <div className="pt-1 px-[35px] flex flex-col">
-          <div className="flex border-b border-gray-200 -mx-[35px]">
+          <div className="flex flex-col border-b border-gray-200 -mx-[35px] w-full">
 
 
             {/* {
@@ -41,6 +42,7 @@ const Home = () => {
                 )
               })
             } */}
+            <VendorStats/>
             <div className="flex px-[23px] ">
               <TabLabel items={vendorlists} activeTab={activeTab} setActiveTab={setActiveTab} />
 
