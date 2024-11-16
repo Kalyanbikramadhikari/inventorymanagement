@@ -1,3 +1,7 @@
+// CreatedBY: Kalyan Bikram Adhikari
+// CreatedDate: 2024/15/11
+// github: https://github.com/Kalyanbikramadhikari
+
 
 import { createApi, fetchBaseQuery } from '@reduxjs/toolkit/query/react'
 
@@ -59,14 +63,14 @@ export const BannerApi = createApi({
 
         //post a banner 
         postBanner: builder.mutation({
-            query: (id, data) => {
-                return {
-                    url: `pokemon/${id}`,
-                    method: 'PUT',
-                    body: data,
-                }
-            },
-            invalidatesTags: (result, error, id) => [{ type: 'product', id }],
+            // query: (id, data) => {
+            //     return {
+            //         url: `pokemon/${id}`,
+            //         method: 'PUT',
+            //         body: data,
+            //     }
+            // },
+            // invalidatesTags: (result, error, id) => [{ type: 'product', id }],
 
 
         })

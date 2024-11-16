@@ -1,14 +1,25 @@
+// CreatedBY: Kalyan Bikram Adhikari
+// CreatedDate: 
+// github: https://github.com/Kalyanbikramadhikari
+
+
+
 import React, { useEffect, useState } from 'react';
 import { Link, useNavigate } from 'react-router-dom';
+import { useAdminLoginMutation } from '../store/APIFeatures/AccountApi';
+import { useDispatch } from 'react-redux';
+import { getAdminDetail } from '../store/reducerSlices/AdminSlice';
 
 const SignInForm = () => {
     const navigate = useNavigate()
+    const dispatch = useDispatch()
     const [formData, setFormData] = useState({
         usernameemail: '',
 
         password: '',
     });
     const [rememberMe, setRememberMe] = useState(false);
+    const [adminLogin, {isLoading, isSuccess, data}]= useAdminLoginMutation()
     // Check localStorage for saved user data when the component mounts
     useEffect(() => {
         const savedUser = localStorage.getItem('userData');
@@ -26,6 +37,12 @@ const SignInForm = () => {
             })
         }
     }, []);
+
+    useEffect(()=>{
+        if(isSuccess){
+            navigate('/')
+        }
+    })
     const handleRememberMeChange = () => {
         setRememberMe((prev) => !prev);
     };
@@ -39,12 +56,16 @@ const SignInForm = () => {
 
     };
 
-    const handleSubmit = (e) => {
+    const handleSubmit = async(e) => {
         e.preventDefault();
 
         // Handle form submission logic
         console.log('Form submitted:', formData);
+        const loginData = await adminLogin({'username':formData.usernameemail, 'password':formData.password});
+        console.log('loginData', loginData)
 
+        // debugger
+        dispatch(getAdminDetail(loginData.data))
 
         if (rememberMe) {
             // Save user data to localStorage
@@ -53,7 +74,7 @@ const SignInForm = () => {
             // Remove from localStorage if "Remember Me" is unchecked
             localStorage.removeItem('userData');
         }
-        navigate('/')
+        // navigate('/')
     };
 
     return (

@@ -1,3 +1,9 @@
+// CreatedBY: Kalyan Bikram Adhikari
+// CreatedDate: 
+// github: https://github.com/Kalyanbikramadhikari
+
+
+
 /** @type {import('tailwindcss').Config} */
 module.exports = {
   content: ["./src/**/*.{html,js}"],

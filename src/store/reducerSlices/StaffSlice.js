@@ -1,3 +1,8 @@
+// CreatedBY: Kalyan Bikram Adhikari
+// CreatedDate: 
+// github: https://github.com/Kalyanbikramadhikari
+
+
 import { createSlice } from '@reduxjs/toolkit'
 
 const staff = JSON.parse(localStorage.getItem('staff'));

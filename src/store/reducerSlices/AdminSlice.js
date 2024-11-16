@@ -1,30 +1,26 @@
+// CreatedBY: Kalyan Bikram Adhikari
+// CreatedDate:
+// github: https://github.com/Kalyanbikramadhikari
+
 import { createSlice } from '@reduxjs/toolkit'
 
+
 const admin = JSON.parse(localStorage.getItem('admin'));
-
-const initialState = admin ? {  admin } : {  admin: null };
-
-
-
+const initialState = {
+  adminData: admin || null  // It's better to have a structured state
+}; 
 
 export const adminSlice = createSlice({
-    name: 'adminSlice',
-    initialState,
-    reducers: {
-        getAdminDetail: (state, action) => {
-            
-            console.log('action', action)
-            console.log('payload', action.payload)
-
-            state.admin = action.payload;
-            sessionStorage.setItem('admin', JSON.stringify(action.payload));
-        },
-        
-
+  name: 'admin',  // Changed name to match the store key
+  initialState,
+  reducers: {
+    getAdminDetail: (state, action) => {
+      // In Redux Toolkit, you can directly mutate the state
+      state.adminData = action.payload;
+      localStorage.setItem('admin', JSON.stringify(action.payload));
     },
+  },
 })
 
-// Action creators are generated for each case reducer function
 export const { getAdminDetail } = adminSlice.actions
-
-export default adminSlice.reducer
+export default adminSlice.reducer  // Export the reducer as default
