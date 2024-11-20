@@ -15,6 +15,7 @@ import Inventory from '../pages/Inventory';
 import Accounting from '../pages/Accounting';
 import Customers from '../pages/Customers';
 import ReportAndAnalysis from '../pages/ReportAnalysis';
+import Vendors from '../pages/Vendors';
 
 
 // react lazy only supports deault export
@@ -30,14 +31,12 @@ const Index = () => {
                     <Route path='/' element={<Home />} />
                     <Route path='/products' element={<Products />} />
                     <Route path='/inventory' element={<Inventory />} />
-                    <Route path='/vendors' element={<Home />} />
+                    <Route path='/vendors' element={<Vendors />} />
                     <Route path='/accounting' element={<Accounting />} />
                     <Route path='/customers' element={<Customers />} />
                     <Route path='/report-and-analysis' element={<ReportAndAnalysis />} />
                     <Route path='/register' element={<SignUpForm/>}/>
-                    <Route path='/login' element={<SignInForm/>}/>
-
-                    
+                    <Route path='/login' element={<SignInForm/>}/>            
 
 
                 </Routes>

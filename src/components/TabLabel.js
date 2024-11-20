@@ -17,7 +17,7 @@ const TabLabel = ({ items, activeTab, setActiveTab }) => {
                             onClick={() => setActiveTab(item)}
                         >
                             {/* <span>{item}</span> */}
-                            <span className={`text-tablabel p-3 ${activeTab === item ? 'text-primary border-b-2 border-primary' : 'text-black'} `}> {item} </span>
+                            <span className={`text-[14px] px-3 py-[8px]  ${activeTab === item ? 'text-primary border-b-2 border-primary' : 'text-[#A6AABA]'} `}> {item} </span>
                         </div>
                     )
                 })

@@ -8,7 +8,21 @@ import { createApi, fetchBaseQuery } from '@reduxjs/toolkit/query/react'
 
 export const BannerApi = createApi({
     reducerPath: 'BannerApi',
-    baseQuery: fetchBaseQuery({ baseUrl: 'https://ecommerce.api.tech-glazers.com/api' }),
+    baseQuery: fetchBaseQuery({
+        baseUrl: 'https://ecommerce.api.tech-glazers.com/api',
+        prepareHeaders: (headers, { getState }) => {
+          const token = getState().admin.adminData.token
+          console.log('token', token)
+    
+          // If we have a token set in state, let's assume that we should be passing it.
+          if (token) {
+            headers.set('authorization', `Bearer ${token}`)
+          }
+    
+          return headers
+        },
+      }),
+    // baseQuery: fetchBaseQuery({ baseUrl: 'https://ecommerce.api.tech-glazers.com/api' }),
     tagTypes: ['image', 'banners', 'banner'],
 
     endpoints: (builder) => ({
@@ -81,4 +95,4 @@ export const BannerApi = createApi({
 })
 
 
-export const { useGetAllAdminQuery, useGetAdminByIDQuery, useAdminLoginMutation, useAdminRegisterMutation } = BannerApi
+export const { useGetBannerByIdQuery, useGetListQuery, useGetListActiveQuery, useGetImageByIdQuery } = BannerApi

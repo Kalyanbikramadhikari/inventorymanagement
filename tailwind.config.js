@@ -10,7 +10,7 @@ module.exports = {
   theme: {
     extend: {
       fontFamily: {
-        roboto: ['Roboto', 'sans-serif'],
+        sans: ['Roboto', 'sans-serif'],
       },
       colors: {
         primary: '#1A73E8',
@@ -30,12 +30,13 @@ module.exports = {
 
         },
         button: {
-          border: '#A6AABA',
+          border: '#A6AABA', //subheading
           activebg: '#E8EFFB',
           inactivetext:'#64748B'
         },
         inputField: {
-          border: '#ECEDEF' //stroke
+          border: '#ECEDEF', //stroke
+          background:'#F9FAFB'
         }
 
       },

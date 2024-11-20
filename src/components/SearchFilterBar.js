@@ -8,6 +8,8 @@ import React from 'react';
 import SearchIcon from '@mui/icons-material/Search';
 import TuneIcon from '@mui/icons-material/Tune';
 import AddIcon from '@mui/icons-material/Add';
+import SwapVertIcon from '@mui/icons-material/SwapVert';
+import FilterListIcon from '@mui/icons-material/FilterList';
 const SearchFilterBar = ({ searchedValue, handleSearchChange, onAddClick, buttonName, placeholderName }) => {
     return (
         <div className="flex justify-between items-center gap-4 py-4 p-3  w-full">
@@ -27,7 +29,11 @@ const SearchFilterBar = ({ searchedValue, handleSearchChange, onAddClick, button
             <div className="flex gap-4">
                 {/* Filter Button */}
                 <button className="flex items-center gap-2 px-4 py-3 rounded-[5px] text-[16px] border border-gray-200 bg-white hover:bg-gray-50">
-                    <TuneIcon className="h-5 w-5" />
+                    <SwapVertIcon className="h-5 w-5" />
+                    <span className='text-[16px] font-medium'>Sort by</span>
+                </button>
+                <button className="flex items-center gap-2 px-4 py-3 rounded-[5px] text-[16px] border border-gray-200 bg-white hover:bg-gray-50">
+                    <FilterListIcon className="h-5 w-5" />
                     <span className='text-[16px] font-medium'>Filter</span>
                 </button>
 

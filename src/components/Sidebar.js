@@ -24,7 +24,7 @@ const Sidebar = ({ activeItem }) => {
     { icon: Inventory2Icon, label: 'Products', href: '/products' },
     { icon: InventoryIcon, label: 'Inventory', href: '/inventory' },
     // { icon: ShoppingCartIcon, label: 'Sales & Orders', href: '/sales' },
-    { icon: PeopleAltIcon, label: 'Vendors', href: '/' },
+    { icon: PeopleAltIcon, label: 'Vendors', href: '/vendors' },
     { icon: CalculateIcon, label: 'Accounting', href: '/accounting' },
     { icon: GroupIcon, label: 'Customers', href: '/customers' },
     { icon: AssessmentIcon, label: 'Reports & Analysis', href: '/report-and-analysis' },
