@@ -30,7 +30,7 @@ module.exports = {
 
         },
         button: {
-          border: '#A6AABA', //subheading
+          border: '#A6AABA', //subheading D9D9D9
           activebg: '#E8EFFB',
           inactivetext:'#64748B'
         },

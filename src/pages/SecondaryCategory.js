@@ -13,7 +13,7 @@ import ProductTable from '../tables/ProductsTable'
 import AddProduct from '../dialogBox/AddProduct'
 import AddProductUpdated from '../dialogBox/AddProductUpdated'
 
-const Products = () => {
+const SecondaryCategory = () => {
     const Productlists = ['ALL']
     const [activeTab, setActiveTab] = useState(Productlists[0]);
     const [searchedValue, setSearchedValue] = useState('')
@@ -30,12 +30,12 @@ const Products = () => {
     }
     return (
         <div className="flex h-screen">
-            <Sidebar activeItem="Products" />
+            <Sidebar activeItem="Secondary Category" />
             <div className="flex-1 flex flex-col">
-                <Navbar PageName="Products" />
+                <Navbar PageName="Secondary Category" />
 
                 <div className="flex  gap-6 px-[35px] py-6">
-                    <NumbersCard name="CATEGORIES" amount="20" />
+                    <NumbersCard name="TOTAL SECONDARY CATEGORIES" amount="20" />
                     <NumbersCard name="TOTOAL PRODUCTS" amount="200,000" />
                     <NumbersCard name="LOW STOCKS" amount="15" />
                     <NumbersCard name="OUT OF STOCKS" amount="10" />
@@ -49,7 +49,7 @@ const Products = () => {
                 <div className="flex   ">
                     <div className="flex px-[23px] w-full">
 
-                        <SearchFilterBar searchedValue={searchedValue} handleSearchChange={handleSearchChange} onAddClick={handleAddProduct} buttonName="Add Products" placeholderName="Search products" />
+                        <SearchFilterBar searchedValue={searchedValue} handleSearchChange={handleSearchChange} onAddClick={handleAddProduct} buttonName="Add Secondary Category" placeholderName="Search products" />
                     </div>
                 </div>
 
@@ -91,4 +91,4 @@ const Products = () => {
     )
 }
 
-export default Products
+export default SecondaryCategory

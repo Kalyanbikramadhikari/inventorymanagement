@@ -45,11 +45,11 @@ const AddProduct = ({ setOpenAddVendorDialog, openAddProductDialog, setOpenAddPr
     };
     return (
         <div className='absolute  inset-0 bg-black  bg-opacity-50 font-roboto  ' onClick={() => { setOpenAddProductDialog(false) }}>
-            <div className={`flex  h-full border-2 border-blue-800  w-full justify-center p-9 `}>
+            <div className={`flex  h-full   w-full justify-center p-9 `}>
                 {/* w-5/6 is to match the exact width of the vendor preview dialog box */}
 
-                {/* <div className={`flex border-2 border-blue-800 ${openAddProductDialog ? '' : ''}justify-end w-5/6  ${isVisible ? 'translate-y-0' : 'translate-y-full' } transition-transform duration-500 `}> */}
-                <div className={`flex border-2 border-blue-800 ${openAddProductDialog ? ' justify-end w-5/6' : 'w-0'}  `}>
+                {/* <div className={`flex  ${openAddProductDialog ? '' : ''}justify-end w-5/6  ${isVisible ? 'translate-y-0' : 'translate-y-full' } transition-transform duration-500 `}> */}
+                <div className={`flex  ${openAddProductDialog ? ' justify-end w-5/6' : 'w-0'}  `}>
 
                     <div className={`bg-white rounded-[5px] ${isVisible ? 'w-2/6' : 'w-0'} transition-all duration-200      relative  `} onClick={(event) => event.stopPropagation()} >
                         <div className=" overflow-auto pb-20">
