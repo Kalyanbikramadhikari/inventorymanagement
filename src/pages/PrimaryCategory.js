@@ -12,6 +12,7 @@ import NumbersCard from '../components/NumbersCard'
 import ProductTable from '../tables/ProductsTable'
 import AddProduct from '../dialogBox/AddProduct'
 import AddProductUpdated from '../dialogBox/AddProductUpdated'
+import AddPrimaryCategory from '../dialogBox/AddPrimaryCategory'
 
 const PrimaryCategory = () => {
     const Productlists = ['ALL']
@@ -66,7 +67,7 @@ const PrimaryCategory = () => {
             {
                 openAddProductDialog && (
                     // <div className="relative">
-                    <AddProductUpdated setOpenAddProductDialog={setOpenAddProductDialog} />
+                    <AddPrimaryCategory setOpenAddProductDialog={setOpenAddProductDialog} />
 
                     // </div>
                 )
