@@ -41,7 +41,7 @@ const Sidebar = ({ activeItem }) => {
         { label: 'Secondary Category', href: '/secondarycategory' }
       ]
     },
-    { icon: SettingsIcon, label: 'Returned & Refuned', href: '/returnedandrefunded' },
+    { icon: SettingsIcon, label: 'Returned & Refunded', href: '/returnedandrefunded' },
   ]
 
   const menuItemsThree = [

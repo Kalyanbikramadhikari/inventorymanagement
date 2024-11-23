@@ -13,6 +13,7 @@ import ProductTable from '../tables/ProductsTable'
 import AddProduct from '../dialogBox/AddProduct'
 import AddProductUpdated from '../dialogBox/AddProductUpdated'
 import AddPrimaryCategory from '../dialogBox/AddPrimaryCategory'
+import PrimaryCategoryTable from '../tables/PrimaryCategoryTable'
 
 const PrimaryCategory = () => {
     const Productlists = ['ALL']
@@ -59,7 +60,7 @@ const PrimaryCategory = () => {
 
 
                 <div className="pt-1 px-[35px] flex flex-col">
-                    <ProductTable />
+                    <PrimaryCategoryTable />
 
                     
                 </div>

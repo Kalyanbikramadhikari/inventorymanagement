@@ -18,6 +18,9 @@ import ReportAndAnalysis from '../pages/ReportAnalysis';
 import Vendors from '../pages/Vendors';
 import PrimaryCategory from '../pages/PrimaryCategory';
 import SecondaryCategory from '../pages/SecondaryCategory';
+import ReturnedAndRefuned from '../pages/Returned';
+import Account from '../pages/Account';
+import SalesAndOrders from '../pages/Sales';
 
 
 // react lazy only supports deault export
@@ -34,14 +37,20 @@ const Index = () => {
                     <Route path='/products' element={<Products />} />
                     <Route path='/inventory' element={<Inventory />} />
                     <Route path='/vendors' element={<Vendors />} />
+                    <Route path='/sales' element={<SalesAndOrders />} />
+
                     <Route path='/primarycategory' element={<PrimaryCategory />} />
                     <Route path='/secondarycategory' element={<SecondaryCategory />} />
+                    <Route path='/returnedandrefunded' element={<ReturnedAndRefuned />} />
+
 
                     <Route path='/accounting' element={<Accounting />} />
+                    <Route path='/account' element={<Account />} />
+
                     <Route path='/customers' element={<Customers />} />
                     <Route path='/report-and-analysis' element={<ReportAndAnalysis />} />
-                    <Route path='/register' element={<SignUpForm/>}/>
-                    <Route path='/login' element={<SignInForm/>}/>            
+                    <Route path='/register' element={<SignUpForm />} />
+                    <Route path='/login' element={<SignInForm />} />
 
 
                 </Routes>
