@@ -18,9 +18,14 @@ import NotificationsIcon from '@mui/icons-material/Notifications';
 import SettingsIcon from '@mui/icons-material/Settings';
 import ArrowDownward from '@mui/icons-material/ArrowDownward';
 import { useLocation } from 'react-router-dom';
+import { useDispatch, useSelector } from 'react-redux';
+import { setisExpanded } from '../store/reducerSlices/ExpandedSidebarSlice';
 
 const Sidebar = ({ activeItem }) => {
-  const [isExpanded, setIsExpanded] = useState(true);
+  // const [isExpanded, setIsExpanded] = useState(true);
+  const { isExpanded } = useSelector((state) => state.hamburger)
+  const dispatch = useDispatch()
+
   const location = useLocation();
   const menuItems = [
     { icon: DashboardIcon, label: 'Dashboard', href: '/' },
@@ -54,15 +59,15 @@ const Sidebar = ({ activeItem }) => {
   ]
 
   return (
-    <div className={`${isExpanded ? 'w-[400px]' : 'w-20'} transition-all duration-200 border-r h-screen bg-[#F9FAFB] relative font-roboto`}     >
+    <div className={`${isExpanded ? 'w-[400px]' : 'w-20'} fixed top-0 left-0 bottom-0 transition-all duration-200 border-r bg-[#F9FAFB] overflow-auto overflow-x-hidden `}>
       <div className=" p-4">
         <div className={`flex items-center gap-2 mb-8 ${isExpanded ? 'px-[24px]' : ''} `}>
           <img src="/assets/images/logo.png" alt="Invenzo" className={`h-10`} />
           {isExpanded && <span className="text-2xl font-bold">Invenzo</span>}
         </div>
-        <div className={`absolute -right-6 top-6 ${isExpanded ? '' : ''}`}>
+        <div className={`absolute -right-0 top-6 ${isExpanded ? '' : ''}`}>
           <div
-            onClick={() => setIsExpanded(!isExpanded)}
+            onClick={() => dispatch(setisExpanded())}
             className={`flex h-12 w-12 shadow-md border-[1px] border-[#EAEBEE] rounded-full bg-white justify-center items-center ${isExpanded ? 'pl-2' : 'pr-2'} cursor-pointer`}
           >
             <ArrowBackIosIcon
@@ -101,7 +106,7 @@ const Sidebar = ({ activeItem }) => {
 
           <hr className='flex border-[#D9D9D9] opacity-75' />
           <div className="flex mt-5">
-            <span className={`font-semibold text-[12px] text-[#99A0A5] px-6 ${isExpanded ? 'text-[12px]' : 'text-[10px]'}`}>INVENTORY</span>
+            <span className={`font-semibold text-[12px] text-[#99A0A5] px-6 ${isExpanded ? 'text-[12px]' : 'text-[10px] hidden'}`}>INVENTORY</span>
 
           </div>
           <div className="space-y-1">
@@ -112,7 +117,7 @@ const Sidebar = ({ activeItem }) => {
                 icon={item.icon}
                 label={item.label}
                 href={item.href}
-                isActive={item.isExpandable 
+                isActive={item.isExpandable
                   ? item.subItems?.some(subItem => activeItem.toLowerCase() === subItem.label.toLowerCase())
                   : false}
                 activesubitem={activeItem.toLowerCase()}
@@ -126,7 +131,7 @@ const Sidebar = ({ activeItem }) => {
           </div>
           <hr className='flex border-[#D9D9D9] opacity-75' />
           <div className="flex mt-5">
-            <span className={`font-semibold text-[12px] text-[#99A0A5] px-6 ${isExpanded ? 'text-[12px]' : 'text-[10px]'}`}>FINANCE</span>
+            <span className={`font-semibold text-[12px] text-[#99A0A5] px-6 ${isExpanded ? 'text-[12px]' : 'text-[10px] hidden'}`}>FINANCE</span>
 
           </div>
           <div className="space-y-1">
@@ -149,7 +154,7 @@ const Sidebar = ({ activeItem }) => {
 
           <hr className='flex border-[#D9D9D9] opacity-75' />
           <div className="flex mt-5">
-            <span className={`font-semibold text-[12px] text-[#99A0A5] px-6 ${isExpanded ? 'text-[12px]' : 'text-[10px]'}`}>NETWORK</span>
+            <span className={`font-semibold text-[12px] text-[#99A0A5] px-6 ${isExpanded ? 'text-[12px]' : 'text-[10px] hidden'}`}>NETWORK</span>
 
           </div>
           <div className="space-y-1">

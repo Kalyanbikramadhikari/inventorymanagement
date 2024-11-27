@@ -9,26 +9,29 @@ import Navbar from '../components/Navbar'
 import Sidebar from '../components/Sidebar'
 import TabLabel from '../components/TabLabel'
 import SearchFilterBar from '../components/SearchFilterBar'
+import { useSelector } from 'react-redux'
 
 const ReturnedAndRefuned = () => {
-  const vendorlists = ['Vendor Management', 'abc']
-  const [activeTab, setActiveTab] = useState(vendorlists[0]);
-  const [searchedValue, setSearchedValue] = useState('')
+    const vendorlists = ['Vendor Management', 'abc']
+    const { isExpanded } = useSelector((state) => state.hamburger)
+
+    const [activeTab, setActiveTab] = useState(vendorlists[0]);
+    const [searchedValue, setSearchedValue] = useState('')
 
 
-  const handleSearchChange = (e) => {
-    setSearchedValue(e.target.value)
-  }
-  const handleAddVendor = (e) => {
+    const handleSearchChange = (e) => {
+        setSearchedValue(e.target.value)
+    }
+    const handleAddVendor = (e) => {
 
 
-    // setOpenAddVendorDialog(!openAddVendorDialog);
-  }
+        // setOpenAddVendorDialog(!openAddVendorDialog);
+    }
     return (
         <div className="flex h-screen">
             <Sidebar activeItem="Returned & Refunded" />
-            <div className="flex-1 flex flex-col">
-                <Navbar PageName="Returned & Refunded"/>
+            <div className={`flex-1 flex flex-col ${isExpanded ? 'ml-[400px]' : 'ml-20'}`}>
+                <Navbar PageName="Returned & Refunded" />
                 <div className="pt-1 px-[35px] flex flex-col">
                     <div className="flex border-b border-gray-200 -mx-[35px]">
 

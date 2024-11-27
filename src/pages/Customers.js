@@ -13,9 +13,12 @@ import NumbersCard from '../components/NumbersCard'
 import CustomersTopCard from '../components/CustomersTopCard'
 import CustomersTable from '../tables/CustomersTable'
 import AddCustomer from '../dialogBox/AddCustomer'
+import { useSelector } from 'react-redux'
 
 const Customers = () => {
     const customerLists = ['ALL', 'NEW CUSTOMERS', 'RETURNING CUSTOMERS']
+    const { isExpanded } = useSelector((state) => state.hamburger)
+
     const [activeTab, setActiveTab] = useState(customerLists[0]);
     const [searchedValue, setSearchedValue] = useState('')
     const [openAddCustomerDialog, setOpenAddCustomerDialog] = useState(false)
@@ -32,7 +35,7 @@ const Customers = () => {
     return (
         <div className="flex h-screen">
             <Sidebar activeItem="Customers" />
-            <div className="flex-1 flex flex-col">
+            <div className={`flex-1 flex flex-col ${isExpanded ? 'ml-[400px]' : 'ml-20'}`}>
                 <Navbar PageName="Customers" />
                 <div className="flex  gap-6 px-[35px] py-6">
                     <CustomersTopCard name="TOTAL CUSTOMERS" amount="25,000" />

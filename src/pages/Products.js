@@ -12,9 +12,12 @@ import NumbersCard from '../components/NumbersCard'
 import ProductTable from '../tables/ProductsTable'
 import AddProduct from '../dialogBox/AddProduct'
 import AddProductUpdated from '../dialogBox/AddProductUpdated'
+import { useSelector } from 'react-redux'
 
 const Products = () => {
     const Productlists = ['ALL']
+  const { isExpanded } = useSelector((state) => state.hamburger)
+
     const [activeTab, setActiveTab] = useState(Productlists[0]);
     const [searchedValue, setSearchedValue] = useState('')
     const [openAddProductDialog, setOpenAddProductDialog] = useState(false)
@@ -31,8 +34,8 @@ const Products = () => {
     return (
         <div className="flex h-screen">
             <Sidebar activeItem="Products" />
-            <div className="flex-1 flex flex-col">
-                <Navbar PageName="Products" />
+            <div className={`flex-1 flex flex-col ${isExpanded ?'ml-[400px]':'ml-20'}`}>
+            <Navbar PageName="Products" />
 
                 <div className="flex  gap-6 px-[35px] py-6">
                     <NumbersCard name="CATEGORIES" amount="20" />

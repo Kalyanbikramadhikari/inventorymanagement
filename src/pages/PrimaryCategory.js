@@ -14,9 +14,12 @@ import AddProduct from '../dialogBox/AddProduct'
 import AddProductUpdated from '../dialogBox/AddProductUpdated'
 import AddPrimaryCategory from '../dialogBox/AddPrimaryCategory'
 import PrimaryCategoryTable from '../tables/PrimaryCategoryTable'
+import { useSelector } from 'react-redux'
 
 const PrimaryCategory = () => {
     const Productlists = ['ALL']
+    const { isExpanded } = useSelector((state) => state.hamburger)
+
     const [activeTab, setActiveTab] = useState(Productlists[0]);
     const [searchedValue, setSearchedValue] = useState('')
     const [openAddProductDialog, setOpenAddProductDialog] = useState(false)
@@ -33,7 +36,7 @@ const PrimaryCategory = () => {
     return (
         <div className="flex h-screen">
             <Sidebar activeItem="Primary Category" />
-            <div className="flex-1 flex flex-col">
+            <div className={`flex-1 flex flex-col ${isExpanded ? 'ml-[400px]' : 'ml-20'}`}>
                 <Navbar PageName="Primary Category" />
 
                 <div className="flex  gap-6 px-[35px] py-6">
@@ -62,7 +65,7 @@ const PrimaryCategory = () => {
                 <div className="pt-1 px-[35px] flex flex-col">
                     <PrimaryCategoryTable />
 
-                    
+
                 </div>
             </div>
             {

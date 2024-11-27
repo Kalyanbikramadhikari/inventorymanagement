@@ -13,7 +13,7 @@ import AddVendor from '../dialogBox/AddVendor'
 import VendorPreview from '../dialogBox/VendorPreview'
 import VendorTable from '../tables/VendorTable'
 import VendorStats from '../components/VendorStats'
-import { useDispatch } from 'react-redux'
+import { useDispatch, useSelector } from 'react-redux'
 import { useGetListQuery } from '../store/APIFeatures/BannerApi'
 import LineAreaChart from '../charts/LineAreaChart'
 import DonutChart from '../charts/DonutChart'
@@ -25,6 +25,8 @@ import { KeyboardArrowDown } from '@mui/icons-material'
 
 const Home = () => {
   const vendorlists = ['Vendor Management', 'abc']
+  const { isExpanded } = useSelector((state) => state.hamburger)
+
   const [activeTab, setActiveTab] = useState(vendorlists[0]);
   const [searchedValue, setSearchedValue] = useState('')
   const [userClickedVendorId, setUserClickedVendorId] = useState('')
@@ -33,8 +35,6 @@ const Home = () => {
   const { data, success, isLoading } = useGetListQuery();
   console.log('data of banner list', data)
   const dispatch = useDispatch();
-
-
 
   const cashflowOptions = {
     responsive: true,
@@ -92,12 +92,12 @@ const Home = () => {
       <div className="flex ">
 
         <Sidebar activeItem="Dashboard" />
-        <div className="flex-1 flex flex-col ">
+        <div className={`flex-1 flex flex-col ${isExpanded ?'ml-[400px]':'ml-20'}`}>
           <Navbar />
 
           <div className="flex mx-[35px] mt-5 gap-6">
             <div className="flex w-7/12"> <LineAreaChart /></div>
-            <div className="flex w-5/12"> <DonutChart/></div>
+            {/* <div className="flex w-5/12"> <DonutChart/></div> */}
           </div>
 
           <div className="px-[35px] py-6">

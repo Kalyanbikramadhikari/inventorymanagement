@@ -14,9 +14,12 @@ import AddProduct from '../dialogBox/AddProduct'
 import AddProductUpdated from '../dialogBox/AddProductUpdated'
 import AddSecondaryCategory from '../dialogBox/AddSecondaryCategory'
 import SecondaryCategoryTable from '../tables/SecondaryCategoryTable'
+import { useSelector } from 'react-redux'
 
 const SecondaryCategory = () => {
     const Productlists = ['ALL']
+    const { isExpanded } = useSelector((state) => state.hamburger)
+
     const [activeTab, setActiveTab] = useState(Productlists[0]);
     const [searchedValue, setSearchedValue] = useState('')
     const [openAddProductDialog, setOpenAddProductDialog] = useState(false)
@@ -33,8 +36,8 @@ const SecondaryCategory = () => {
     return (
         <div className="flex h-screen">
             <Sidebar activeItem="Secondary Category" />
-            <div className="flex-1 flex flex-col">
-                <Navbar PageName="Secondary Category" />
+            <div className={`flex-1 flex flex-col ${isExpanded ?'ml-[400px]':'ml-20'}`}>
+            <Navbar PageName="Secondary Category" />
 
                 <div className="flex  gap-6 px-[35px] py-6">
                     <NumbersCard name="TOTAL SECONDARY CATEGORIES" amount="20" />

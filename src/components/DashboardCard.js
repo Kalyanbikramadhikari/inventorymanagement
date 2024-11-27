@@ -34,7 +34,7 @@ const DashboardCard = ({ percentage, name, amount }) => {
 
 
             </div>
-            <div className="flex flex-col">
+            <div className="flex flex-col justify-center items-center">
                 <span className='text-[13px] text-[#7A8299] font-medium'>{name}</span>
                 <h1 className='text-[29px]'>{amount}</h1>
             </div>

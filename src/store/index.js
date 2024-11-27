@@ -11,6 +11,7 @@ import { rtkQueryErrorLogger } from './middleware/errorHandlingMiddleware'
 import { AccountApi } from './APIFeatures/AccountApi'
 import adminReducer from './reducerSlices/AdminSlice'
 import { BannerApi } from './APIFeatures/BannerApi'
+import  ExpandedSidebarSlice  from './reducerSlices/ExpandedSidebarSlice'
 
 
 
@@ -22,6 +23,8 @@ export const store = configureStore({
     [AccountApi.reducerPath]: AccountApi.reducer,
     [BannerApi.reducerPath]: BannerApi.reducer,
     admin: adminReducer,
+    hamburger:ExpandedSidebarSlice,
+
 
   },
   // Adding the api middleware enables caching, invalidation, polling,

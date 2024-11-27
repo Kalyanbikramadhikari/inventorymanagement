@@ -23,7 +23,7 @@ const SidebarItem = ({ icon: Icon, label, isActive, activesubitem, href, isExpan
         <div
           onClick={handleParentClick}
 
-          className={`flex items-center justify-between ${isExpanded ? 'px-6 py-4' : 'py-4 justify-center'
+          className={`flex items-center justify-between ${isExpanded ? 'px-6 py-4' : 'py-4 flex justify-center'
             } rounded-borderRadius cursor-pointer transition-colors text-button-inactivetext text-subHeading font-normal hover:bg-gray-100
           
             }`}
